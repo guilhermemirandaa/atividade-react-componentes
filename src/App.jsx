@@ -3,6 +3,7 @@ import ProgressBar from './components/ProgressBar'
 import Tabs from './components/Tabs'
 import Dropdown from './components/Dropdown'
 import Pagination from './components/Pagination'
+import Accordion from './components/Accordion'
 import { useToast } from './context/ToastContext'
 import './App.css'
 
@@ -42,6 +43,25 @@ const produtos = [
   { id: 10, nome: 'Moletom', preco: 159.9, categoria: 'Roupas' },
   { id: 11, nome: '1984', preco: 39.9, categoria: 'Livros' },
   { id: 12, nome: 'Almofada', preco: 39.9, categoria: 'Casa' },
+]
+
+const perguntas = [
+  {
+    titulo: 'Qual o prazo de entrega?',
+    conteudo: <p>De 3 a 7 dias úteis para capitais. Até 12 dias úteis para o interior.</p>,
+  },
+  {
+    titulo: 'Como faço uma troca?',
+    conteudo: <p>Você tem 7 dias após o recebimento. Acesse "Meus pedidos" e solicite a troca.</p>,
+  },
+  {
+    titulo: 'Quais formas de pagamento?',
+    conteudo: <p>Pix, boleto e cartão de crédito em até 10x sem juros.</p>,
+  },
+  {
+    titulo: 'O frete é grátis?',
+    conteudo: <p>Sim, para compras acima de R$ 199,00.</p>,
+  },
 ]
 
 const POR_PAGINA = 4
@@ -127,6 +147,11 @@ function App() {
         <button onClick={iniciarUpload} disabled={uploading}>
           {uploading ? 'Enviando...' : 'Simular upload'}
         </button>
+      </section>
+
+      <section>
+        <h2>Perguntas frequentes</h2>
+        <Accordion items={perguntas} />
       </section>
 
       <section>

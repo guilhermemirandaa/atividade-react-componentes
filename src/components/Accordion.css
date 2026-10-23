@@ -1,0 +1,44 @@
+.accordion {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-item + .accordion-item {
+  border-top: 1px solid #e5e7eb;
+}
+
+.accordion-heading {
+  margin: 0;
+}
+
+.accordion-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.accordion-button:hover,
+.accordion-button:focus-visible {
+  background: #eff6ff;
+}
+
+.accordion-button span {
+  font-size: 20px;
+  color: #2563eb;
+}
+
+.accordion-panel {
+  padding: 0 16px 16px;
+  background: #fff;
+  line-height: 1.5;
+}
