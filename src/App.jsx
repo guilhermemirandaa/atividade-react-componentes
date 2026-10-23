@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import ProgressBar from './components/ProgressBar'
 import Tabs from './components/Tabs'
+import Dropdown from './components/Dropdown'
 import { useToast } from './context/ToastContext'
 import './App.css'
 
@@ -24,6 +25,8 @@ const abasProduto = [
     conteudo: <p>★★★★☆ 4,5 de 5 — 128 avaliações.</p>,
   },
 ]
+
+const categorias = ['Todas', 'Eletrônicos', 'Roupas', 'Livros', 'Casa']
 
 function App() {
   const { showToast } = useToast()
@@ -54,6 +57,15 @@ function App() {
   return (
     <main>
       <h1>Loja Virtual</h1>
+
+      <section>
+        <h2>Filtrar produtos</h2>
+        <Dropdown
+          label="Categoria"
+          options={categorias}
+          onSelect={(cat) => showToast(`Categoria: ${cat}`, 'info')}
+        />
+      </section>
 
       <section>
         <h2>Detalhes do produto</h2>
