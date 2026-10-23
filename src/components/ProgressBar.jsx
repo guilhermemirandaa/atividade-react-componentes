@@ -12,7 +12,7 @@ function ProgressBar({ value, label }) {
         <span>{percent}%</span>
       </div>
 
-      {/* role e aria-* informam leitores de tela */}
+      
       <div
         className="progress-track"
         role="progressbar"
