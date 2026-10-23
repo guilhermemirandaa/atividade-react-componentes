@@ -38,7 +38,22 @@
 }
 
 .accordion-panel {
-  padding: 0 16px 16px;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
   background: #fff;
+}
+
+.accordion-panel.aberto {
+  grid-template-rows: 1fr;
+}
+
+.accordion-conteudo {
+  overflow: hidden;
+  padding: 0 16px;
   line-height: 1.5;
+}
+
+.accordion-panel.aberto .accordion-conteudo {
+  padding-bottom: 16px;
 }

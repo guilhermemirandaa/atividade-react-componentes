@@ -28,16 +28,15 @@ function Accordion({ items }) {
               </button>
             </h3>
 
-            {estaAberto && (
-              <div
-                id={`acc-painel-${index}`}
-                role="region"
-                aria-labelledby={`acc-botao-${index}`}
-                className="accordion-panel"
-              >
-                {item.conteudo}
-              </div>
-            )}
+            <div
+              id={`acc-painel-${index}`}
+              role="region"
+              aria-labelledby={`acc-botao-${index}`}
+              aria-hidden={!estaAberto}
+              className={`accordion-panel ${estaAberto ? 'aberto' : ''}`}
+            >
+              <div className="accordion-conteudo">{item.conteudo}</div>
+            </div>
           </div>
         )
       })}
