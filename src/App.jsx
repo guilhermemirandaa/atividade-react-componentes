@@ -1,7 +1,29 @@
 import { useState, useEffect } from 'react'
 import ProgressBar from './components/ProgressBar'
+import Tabs from './components/Tabs'
 import { useToast } from './context/ToastContext'
 import './App.css'
+
+const abasProduto = [
+  {
+    titulo: 'Descrição',
+    conteudo: <p>Fone de ouvido sem fio com cancelamento de ruído e bateria de 30 horas.</p>,
+  },
+  {
+    titulo: 'Especificações',
+    conteudo: (
+      <ul>
+        <li>Bluetooth 5.3</li>
+        <li>Peso: 250g</li>
+        <li>Cor: Preto</li>
+      </ul>
+    ),
+  },
+  {
+    titulo: 'Avaliações',
+    conteudo: <p>★★★★☆ 4,5 de 5 — 128 avaliações.</p>,
+  },
+]
 
 function App() {
   const { showToast } = useToast()
@@ -32,6 +54,11 @@ function App() {
   return (
     <main>
       <h1>Loja Virtual</h1>
+
+      <section>
+        <h2>Detalhes do produto</h2>
+        <Tabs tabs={abasProduto} />
+      </section>
 
       <section>
         <h2>Enviar foto do produto</h2>

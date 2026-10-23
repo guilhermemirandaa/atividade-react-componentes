@@ -1,0 +1,25 @@
+.tabs-list {
+  display: flex;
+  border-bottom: 2px solid #e5e7eb;
+  overflow-x: auto;
+}
+
+.tabs-button {
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.tabs-button.ativa {
+  border-bottom-color: #2563eb;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.tabs-panel {
+  padding: 16px 0;
+}
