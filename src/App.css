@@ -1,0 +1,178 @@
+.cabecalho {
+  background: #1e3a8a;
+  color: #fff;
+}
+
+.cabecalho-conteudo {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.logo {
+  margin: 0;
+  font-size: 24px;
+}
+
+.menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.conteudo {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  display: grid;
+  align-content: start;
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.produtos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.produto {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.produto h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.produto p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.produto .preco {
+  margin: 8px 0;
+  color: #111827;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.botao {
+  padding: 10px 14px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.botao:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.botao:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.produto .botao {
+  margin-top: auto;
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.botao-sucesso {
+  background: #16a34a;
+}
+
+.botao-erro {
+  background: #dc2626;
+}
+
+.botao-sucesso:hover:not(:disabled) {
+  background: #15803d;
+}
+
+.botao-erro:hover:not(:disabled) {
+  background: #b91c1c;
+}
+
+.rodape {
+  margin-top: 24px;
+  padding: 24px 16px;
+  background: #111827;
+  color: #d1d5db;
+  text-align: center;
+}
+
+.rodape p {
+  margin: 0;
+}
+
+@media (min-width: 600px) {
+  .cabecalho-conteudo {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .produtos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .conteudo {
+    grid-template-columns: 1fr 1fr;
+    padding: 24px;
+  }
+
+  .card-largo {
+    grid-column: 1 / -1;
+  }
+
+  .produtos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

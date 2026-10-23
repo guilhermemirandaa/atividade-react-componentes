@@ -107,60 +107,97 @@ function App() {
   const produtosDaPagina = filtrados.slice(inicio, inicio + POR_PAGINA)
 
   return (
-    <main>
-      <h1>Loja Virtual</h1>
+    <>
+      <a href="#conteudo" className="pular-link">
+        Pular para o conteúdo
+      </a>
 
-      <section>
-        <h2>Produtos</h2>
-        <Dropdown label="Categoria" options={categorias} onSelect={trocarCategoria} />
+      <header className="cabecalho">
+        <div className="cabecalho-conteudo">
+          <p className="logo">Loja Virtual</p>
+          <nav className="menu" aria-label="Menu principal">
+            <ul>
+              <li><a href="#produtos">Produtos</a></li>
+              <li><a href="#detalhes">Detalhes</a></li>
+              <li><a href="#faq">Dúvidas</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
 
-        <ul className="produtos">
-          {produtosDaPagina.map((produto) => (
-            <li key={produto.id} className="produto">
-              <h3>{produto.nome}</h3>
-              <p>{produto.categoria}</p>
-              <p>R$ {produto.preco.toFixed(2).replace('.', ',')}</p>
-              <button onClick={() => showToast(`${produto.nome} adicionado ao carrinho!`, 'sucesso')}>
-                Adicionar ao carrinho
-              </button>
-            </li>
-          ))}
-        </ul>
+      <main id="conteudo" className="conteudo">
+        <h1 className="pular-link">Loja Virtual</h1>
 
-        {totalPaginas > 1 && (
-          <Pagination
-            totalPages={totalPaginas}
-            currentPage={pagina}
-            onPageChange={setPagina}
-          />
-        )}
-      </section>
+        <section id="produtos" className="card card-largo" aria-labelledby="titulo-produtos">
+          <h2 id="titulo-produtos">Produtos</h2>
+          <Dropdown label="Categoria" options={categorias} onSelect={trocarCategoria} />
 
-      <section>
-        <h2>Detalhes do produto</h2>
-        <Tabs tabs={abasProduto} />
-      </section>
+          <ul className="produtos">
+            {produtosDaPagina.map((produto) => (
+              <li key={produto.id} className="produto">
+                <h3>{produto.nome}</h3>
+                <p>{produto.categoria}</p>
+                <p className="preco">R$ {produto.preco.toFixed(2).replace('.', ',')}</p>
+                <button
+                  className="botao"
+                  onClick={() => showToast(`${produto.nome} adicionado ao carrinho!`, 'sucesso')}
+                >
+                  Adicionar ao carrinho
+                </button>
+              </li>
+            ))}
+          </ul>
 
-      <section>
-        <h2>Enviar foto do produto</h2>
-        <ProgressBar value={progress} label="Upload da imagem" />
-        <button onClick={iniciarUpload} disabled={uploading}>
-          {uploading ? 'Enviando...' : 'Simular upload'}
-        </button>
-      </section>
+          {totalPaginas > 1 && (
+            <Pagination
+              totalPages={totalPaginas}
+              currentPage={pagina}
+              onPageChange={setPagina}
+            />
+          )}
+        </section>
 
-      <section>
-        <h2>Perguntas frequentes</h2>
-        <Accordion items={perguntas} />
-      </section>
+        <section id="detalhes" className="card" aria-labelledby="titulo-detalhes">
+          <h2 id="titulo-detalhes">Detalhes do produto</h2>
+          <Tabs tabs={abasProduto} />
+        </section>
 
-      <section>
-        <h2>Testar notificações</h2>
-        <button onClick={() => showToast('Produto salvo!', 'sucesso')}>Sucesso</button>
-        <button onClick={() => showToast('Erro ao salvar.', 'erro')}>Erro</button>
-        <button onClick={() => showToast('Frete grátis hoje.', 'info')}>Info</button>
-      </section>
-    </main>
+        <section className="card" aria-labelledby="titulo-upload">
+          <h2 id="titulo-upload">Enviar foto do produto</h2>
+          <ProgressBar value={progress} label="Upload da imagem" />
+          <div className="botoes">
+            <button className="botao" onClick={iniciarUpload} disabled={uploading}>
+              {uploading ? 'Enviando...' : 'Simular upload'}
+            </button>
+          </div>
+        </section>
+
+        <section id="faq" className="card" aria-labelledby="titulo-faq">
+          <h2 id="titulo-faq">Perguntas frequentes</h2>
+          <Accordion items={perguntas} />
+        </section>
+
+        <section className="card" aria-labelledby="titulo-notificacoes">
+          <h2 id="titulo-notificacoes">Notificações</h2>
+          <p>Veja os três tipos de aviso da loja.</p>
+          <div className="botoes">
+            <button className="botao botao-sucesso" onClick={() => showToast('Pedido confirmado!', 'sucesso')}>
+              Sucesso
+            </button>
+            <button className="botao botao-erro" onClick={() => showToast('Pagamento recusado.', 'erro')}>
+              Erro
+            </button>
+            <button className="botao" onClick={() => showToast('Frete grátis hoje.', 'info')}>
+              Info
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <footer className="rodape">
+        <p>© 2026 Loja Virtual. Atividade de Tópicos Avançados em Programação.</p>
+      </footer>
+    </>
   )
 }
 
