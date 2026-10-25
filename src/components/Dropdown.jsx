@@ -28,11 +28,12 @@ function Dropdown({ label, options, onSelect }) {
 
   return (
     <div className="dropdown" ref={ref} onKeyDown={handleKeyDown}>
-      <span className="dropdown-label">{label}</span>
+      <span id="dropdown-label" className="dropdown-label">{label}</span>
       <button
         className="dropdown-button"
-        aria-haspopup="listbox"
         aria-expanded={aberto}
+        aria-controls="dropdown-lista"
+        aria-describedby="dropdown-label"
         onClick={() => setAberto(!aberto)}
       >
         {selecionado}
@@ -40,11 +41,12 @@ function Dropdown({ label, options, onSelect }) {
       </button>
 
       {aberto && (
-        <ul className="dropdown-list" role="listbox" aria-label={label}>
+        <ul id="dropdown-lista" className="dropdown-list" aria-label={label}>
           {options.map((opcao) => (
-            <li key={opcao} role="option" aria-selected={opcao === selecionado}>
+            <li key={opcao}>
               <button
                 className={`dropdown-option ${opcao === selecionado ? 'selecionada' : ''}`}
+                aria-current={opcao === selecionado ? 'true' : undefined}
                 onClick={() => escolher(opcao)}
               >
                 {opcao}
